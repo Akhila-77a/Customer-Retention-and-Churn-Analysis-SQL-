@@ -1,0 +1,15 @@
+CREATE TABLE Customer (
+    CustomerID INT PRIMARY KEY,
+    FullName NVARCHAR(100),
+    JoinDate DATE,
+    Segment VARCHAR(50),
+    Status VARCHAR(20) -- 'Active' or 'Inactive'
+);
+
+CREATE TABLE CustomerActivity (
+    ActivityID INT PRIMARY KEY,
+    CustomerID INT FOREIGN KEY REFERENCES Customer(CustomerID),
+    ActivityMonth DATE,
+    UsageInMinutes INT,
+    BilledAmount DECIMAL(10,2)
+);
